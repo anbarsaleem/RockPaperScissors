@@ -7,8 +7,9 @@ public class RockPaperScissors extends JFrame implements ActionListener {
 
     JPanel choices;
     JButton rock, paper, scissors;
-    JLabel instructions; 
+    JLabel instructions, score; 
     Random opponentChoice = new Random();
+    int userWins, opponentWins;
 
     public RockPaperScissors(String rps){
 
@@ -19,6 +20,7 @@ public class RockPaperScissors extends JFrame implements ActionListener {
         paper = new JButton("PAPER");
         scissors = new JButton("SCISSORS");
         instructions = new JLabel("Press one of the buttons to challenge the robot");
+        score = new JLabel("Score: " + userWins + " - " + opponentWins);
 
         rock.addActionListener(this);
         paper.addActionListener(this);
@@ -28,7 +30,7 @@ public class RockPaperScissors extends JFrame implements ActionListener {
         paper.setActionCommand("paper");
         scissors.setActionCommand("scissors");
 
-        final BoxLayout bl = new BoxLayout(choices, BoxLayout.X_AXIS);
+        BoxLayout bl = new BoxLayout(choices, BoxLayout.X_AXIS);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -40,11 +42,12 @@ public class RockPaperScissors extends JFrame implements ActionListener {
 
         add(instructions);
         add(choices);
+        add(score);
 
     }
 
     @Override
-    public void actionPerformed(final ActionEvent e) {
+    public void actionPerformed( ActionEvent e) {
 
         int opponent = opponentChoice.nextInt(2) + 1; //1 is rock, 2 is paper, 3 is scissors
 
@@ -73,6 +76,8 @@ public class RockPaperScissors extends JFrame implements ActionListener {
 
                 getContentPane().setBackground(Color.red);
                 JOptionPane.showMessageDialog(null, "You lose :(", "The opponent chose " + opChoice, JOptionPane.WARNING_MESSAGE);
+                opponentWins++;
+                score.setText("Score: " + userWins + " - " + opponentWins);
 
             }
 
@@ -80,6 +85,8 @@ public class RockPaperScissors extends JFrame implements ActionListener {
 
                 getContentPane().setBackground(Color.green);
                 JOptionPane.showMessageDialog(null, "You win :)", "The opponent chose " + opChoice, JOptionPane.WARNING_MESSAGE);
+                userWins++;
+                score.setText("Score: " + userWins + " - " + opponentWins);
 
             }
 
@@ -91,6 +98,8 @@ public class RockPaperScissors extends JFrame implements ActionListener {
 
                 getContentPane().setBackground(Color.red);
                 JOptionPane.showMessageDialog(null, "You lose :(", "The opponent chose " + opChoice, JOptionPane.WARNING_MESSAGE);
+                opponentWins++;
+                score.setText("Score: " + userWins + " - " + opponentWins);
 
             }
 
@@ -98,6 +107,8 @@ public class RockPaperScissors extends JFrame implements ActionListener {
 
                 getContentPane().setBackground(Color.green);
                 JOptionPane.showMessageDialog(null, "You win :)", "The opponent chose " + opChoice, JOptionPane.WARNING_MESSAGE);
+                userWins++;
+                score.setText("Score: " + userWins + " - " + opponentWins);
 
             }
 
@@ -109,6 +120,8 @@ public class RockPaperScissors extends JFrame implements ActionListener {
 
                 getContentPane().setBackground(Color.red);
                 JOptionPane.showMessageDialog(null, "You lose :(", "The opponent chose " + opChoice, JOptionPane.WARNING_MESSAGE);
+                opponentWins++;
+                score.setText("Score: " + userWins + " - " + opponentWins);
 
             }
 
@@ -116,6 +129,8 @@ public class RockPaperScissors extends JFrame implements ActionListener {
 
                 getContentPane().setBackground(Color.green);
                 JOptionPane.showMessageDialog(null, "You win :)", "The opponent chose " + opChoice, JOptionPane.WARNING_MESSAGE);
+                userWins++;
+                score.setText("Score: " + userWins + " - " + opponentWins);
 
             }
 
